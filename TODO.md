@@ -1,0 +1,57 @@
+# Task: Build Bardo National Museum Website
+
+## Plan
+- [ ] Step 1: Design System & Theme Configuration
+  - [ ] Update index.css with museum-themed color palette (warm beige, deep brown, cream white, terracotta)
+  - [ ] Configure tailwind.config.js with custom design tokens
+  - [ ] Ensure proper light/dark mode color definitions
+- [ ] Step 2: Core Infrastructure Setup
+  - [ ] Create i18n context for multilingual support (Arabic, French, English)
+  - [ ] Create theme context for dark/light mode switching
+  - [ ] Set up translation files structure
+  - [ ] Create types and interfaces
+- [ ] Step 3: Layout Components
+  - [ ] Create Header component with language switcher and theme toggle
+  - [ ] Create Footer component with museum info
+  - [ ] Create main Layout component
+- [ ] Step 4: Page Components
+  - [ ] Home page with hero carousel and quick navigation
+  - [ ] About Us page with museum history
+  - [ ] Blog/Articles page with static articles
+  - [ ] Prehistoric Collections page
+  - [ ] Ethnographic Exhibit page
+  - [ ] Special Exhibitions page
+  - [ ] Contact page with form
+- [ ] Step 5: AI Museum Guide Integration
+  - [ ] Create AI chat widget component using Large language Model API
+  - [ ] Implement streaming response handling with EventSource
+  - [ ] Add markdown rendering with streamdown
+  - [ ] Create museum knowledge base context
+- [ ] Step 6: Supabase Backend Setup
+  - [ ] Initialize Supabase
+  - [ ] Create contact form submissions table
+  - [ ] Set up storage policies
+  - [ ] Create API functions for form submission
+- [ ] Step 7: Image Integration
+  - [ ] Search for museum building exterior images
+  - [ ] Search for gallery room images
+  - [ ] Search for artifact images
+  - [ ] Search for ethnographic exhibit images
+  - [ ] Replace all placeholder images with real URLs
+- [ ] Step 8: Routes Configuration
+  - [ ] Update routes.tsx with all pages
+  - [ ] Ensure proper navigation
+- [ ] Step 9: Testing & Validation
+  - [ ] Run npm run lint and fix all issues
+  - [ ] Test all pages and features
+  - [ ] Verify multilingual support
+  - [ ] Test theme switching
+  - [ ] Test AI assistant
+  - [ ] Test contact form
+
+## Notes
+- Using Large language Model API for AI-powered Q&A assistant
+- No login/payment/image upload features needed
+- Supabase for contact form storage only
+- Static translations for better performance
+- Museum color palette: beige (#E8DCC4), brown (#5C4033), cream (#FAF7F2), terracotta (#C1876B)
