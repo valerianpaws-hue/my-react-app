@@ -167,8 +167,58 @@ pnpm run dev
 
 5. Build for production:
 ```bash
-pnpm run build
+pnpm run build:prod
 ```
+
+## Deployment
+
+### Netlify Deployment
+
+This project is configured for seamless deployment on Netlify.
+
+#### Quick Deploy
+1. **Commit and push changes:**
+```bash
+git add .
+git commit -m "Deploy to Netlify"
+git push origin main
+```
+
+2. **Netlify will automatically build and deploy** using the configuration in `netlify.toml`
+
+#### Manual Deploy
+```bash
+# Build locally
+pnpm run build:prod
+
+# Deploy via Netlify CLI
+netlify deploy --prod --dir=dist
+```
+
+#### Configuration Files
+- **`netlify.toml`** - Netlify build configuration
+- **`vite.config.prod.ts`** - Production Vite configuration
+- **`.nvmrc`** - Node.js version lock (v20)
+- **`.npmrc`** - NPM configuration
+
+#### Environment Variables
+Set these in Netlify Dashboard (Site Settings → Environment Variables):
+- `VITE_APP_ID`
+- `VITE_API_ENV`
+- `VITE_SUPABASE_URL`
+- `VITE_SUPABASE_ANON_KEY`
+
+#### Deployment Documentation
+For detailed deployment instructions and troubleshooting:
+- 📖 [Netlify Deployment Guide](./NETLIFY_DEPLOYMENT_GUIDE.md)
+- ✅ [Deployment Checklist](./DEPLOYMENT_CHECKLIST.md)
+
+### Build Configuration
+- **Node Version:** 20 (LTS)
+- **Package Manager:** pnpm
+- **Build Command:** `pnpm install && pnpm run build:prod`
+- **Publish Directory:** `dist`
+- **Build Time:** ~2-5 minutes
 
 ## Features Implementation Details
 

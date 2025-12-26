@@ -1,0 +1,67 @@
+# Netlify Build Configuration
+# This configuration ensures proper deployment of the Bardo Museum website
+
+[build]
+  # Build command - uses Vite with production config to build the React application
+  command = "pnpm install && pnpm run build:prod"
+  
+  # Directory containing the built static files
+  publish = "dist"
+  
+  # Ignore builds if no relevant files changed
+  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF ."
+
+[build.environment]
+  # Use Node.js 20 LTS for stability
+  NODE_VERSION = "20"
+  
+  # Use pnpm for package management
+  NPM_FLAGS = "--legacy-peer-deps"
+  
+  # Disable telemetry
+  NEXT_TELEMETRY_DISABLED = "1"
+
+# Redirect rules for SPA routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = false
+  
+# Headers for security and performance
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Plugin configuration - disable problematic plugins
+[plugins]
+  # Disable any automatic plugin detection that might trigger neon
+  
+# Context-specific settings
+[context.production]
+  command = "pnpm install && pnpm run build:prod"
+  
+[context.deploy-preview]
+  command = "pnpm install && pnpm run build:prod"
+  
+[context.branch-deploy]
+  command = "pnpm install && pnpm run build:prod"
